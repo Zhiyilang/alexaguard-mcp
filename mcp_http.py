@@ -229,20 +229,24 @@ class _Handler(BaseHTTPRequestHandler):
 
     def do_GET(self):  # noqa: N802
         if self.path.split("?")[0] in ("/healthz", "/healthz/"):
+            body = b'{"ok":true}'
             self.send_response(200)
             self.send_header("Content-Type", "application/json")
+            self.send_header("Content-Length", str(len(body)))
             self.end_headers()
-            self.wfile.write(b'{"ok":true}')
+            self.wfile.write(body)
             return
         if self.path.split("?")[0] == "/":
-            self.send_response(200)
-            self.send_header("Content-Type", "text/html; charset=utf-8")
-            self.end_headers()
-            self.wfile.write(
+            body = (
                 b"<html><body><h1>AgentGuard MCP</h1>"
                 b"<p>Streamable HTTP MCP server (protocol 2025-11-25). "
                 b"POST JSON-RPC to <code>/mcp</code>.</p></body></html>"
             )
+            self.send_response(200)
+            self.send_header("Content-Type", "text/html; charset=utf-8")
+            self.send_header("Content-Length", str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
             return
         self.send_response(404)
         self.end_headers()
