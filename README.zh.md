@@ -46,4 +46,4 @@ python eval.py    # 引擎 + 真实 Streamable HTTP 握手；exit 0 = 全绿
 ```
 
 由 [AuditPilot 的 AgentGuard](https://github.com/Zhiyilang/auditpilot)
-派生（上游 68/68 回归断言）。MIT 许可。
+派生（本仓离线测试套件 **69/69** 引擎+传输断言，移植自上游回归库）。MIT 许可。

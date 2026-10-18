@@ -72,5 +72,5 @@ serves `initialize`/`tools/list`/`tools/call` over both JSON and SSE framing.
 - Never fabricate: every finding carries its rule id and matched span.
 - Benign traffic must pass (false-positive rate is a scored dimension).
 
-Derived from [AuditPilot's AgentGuard](https://github.com/Zhiyilang/auditpilot)
-(68/68 regression assertions upstream). MIT licensed.
+This repo's offline suite asserts **69/69** engine + transport cases, ported
+from AuditPilot's AgentGuard upstream regression bank. MIT licensed.
